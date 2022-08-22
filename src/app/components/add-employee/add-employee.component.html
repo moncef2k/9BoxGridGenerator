@@ -1,0 +1,49 @@
+<div class="container h-100   d-flex justify-content-center align-items-center">
+    
+
+      <div class="card" style="width: 30rem;">
+        <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+                <img src="https://cdn.pixabay.com/photo/2017/08/16/00/29/add-person-2646097_960_720.png" class="rounded-circle" style="width: 47px;"
+  alt="Avatar" *ngIf="currentUrl.startsWith('/add')" />
+  <img 
+  src="https://freepikpsd.com/file/2019/10/update-user-icon-png-7-Transparent-Images.png" 
+  class="rounded-circle" style="width: 47px;"
+  *ngIf="currentUrl.startsWith('/patch')"
+  alt="Avatar" />
+                <div mat-card-avatar class="example-header-image me-2"></div>
+            <h5 class="card-title" *ngIf="currentUrl.startsWith('/add')">Add Employee</h5>
+            <h5 class="card-title" *ngIf="currentUrl.startsWith('/patch')">Update Employee</h5>
+            </div>
+          
+            <form class="needs-validation " [formGroup]="validateForm!">
+                <div class="form-group mb-3">
+                  <label for="dept">Name:</label>
+                  <input type="text" class="form-control" id="dept" placeholder="Name" minlength="3" formControlName="name" [value]="ifUpdateCurrentUserIs?.name" required>
+                  <!-- <div class="valid-feedback">Valid Name.</div>
+                  <div class="invalid-feedback">Please fill out this field.</div> -->
+                </div>
+                <div class="form-group mb-3">
+                  <label for="dept">Department:</label>
+                  <input type="text" class="form-control" id="dept" placeholder="department" minlength="3" formControlName="department" [value]="ifUpdateCurrentUserIs?.department" required>
+                  <!-- <div class="valid-feedback">Valid department.</div>
+                  <div class="invalid-feedback">Please fill out this field.</div> -->
+                </div>
+                <div class="form-group mb-3">
+                    <label for="pot">Potential:</label>
+                    <input type="number" class="form-control" id="pot"  min="1" max="3" placeholder="potential" formControlName="potential" [value]="ifUpdateCurrentUserIs?.potential" required>
+                    <!-- <div class="valid-feedback">Valid potential.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div> -->
+                </div>
+                <div class="form-group mb-3">
+                    <label for="perf">Performance:</label>
+                    <input type="number" class="form-control" id="perf"  min="1" max="3" placeholder="performance" formControlName="performance" [value]="ifUpdateCurrentUserIs?.potential" required>
+                    <!-- <div class="valid-feedback">Valid performance</div>
+                    <div class="invalid-feedback">Please fill out this field.</div> -->
+                </div>
+                <button type="button" (click)="onCancel()" class="btn btn-secondary me-2">Cancel</button>
+                <button type="button" (click)="onSubmit()" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+      </div>
+</div>
